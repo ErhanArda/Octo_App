@@ -53,7 +53,7 @@ export default {
     },
     methods:{
         deleteUser(userId){
-        const willDelete = confirm(`Do you really want to delete this record? ${userId}`)
+        const willDelete = confirm(`Do you really want to delete record ${userId}? `)
         if (willDelete) {
         this.$store.dispatch("deleteUser",userId)
         }

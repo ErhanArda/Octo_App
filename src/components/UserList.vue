@@ -1,7 +1,9 @@
 <template>
     <div>
         <template>
-            <AddModal/>
+           <v-toolbar color="grey lighten-4" flat>
+              <v-toolbar-title><AddModal/></v-toolbar-title>
+            </v-toolbar>
             <UserListItem :userList="userList" />
             <!-- <v-pagination
                 v-model="page"
