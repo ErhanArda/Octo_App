@@ -26,6 +26,9 @@
             <td>
             </td>
             <td>
+                <UpdateUserInfo :userUp="user" />
+            </td>
+            <td>
             <v-btn @click="deleteUser(user.id)" color="error"> <v-icon small>
                 mdi-delete
                 </v-icon></v-btn>
@@ -37,13 +40,17 @@
 </template>
 
 <script>
+import UpdateUserInfo from "./UpdateUserInfo";
 
 export default {
+    components:{UpdateUserInfo},
     props: ["userList"],
     methods:{
         deleteUser(userId){
-            alert(userId)
-            this.$store.dispatch("deleteUser",userId)
+        const willDelete = confirm(`Do you really want to delete this record? ${userId}`)
+        if (willDelete) {
+        this.$store.dispatch("deleteUser",userId)
+        }
         },
     }
 };

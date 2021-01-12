@@ -17,6 +17,12 @@ export default {
         deleteUser(state,userId){
             state.userList = state.userList.filter(user => user.id !== userId)
         },
+        updateUserInfo(state,user){
+            state.userList = state.userList.filter(u=> {
+                u.id !== user.id
+                return user
+            })
+        },
         setPage(state,page){
             state.page = page
         }
@@ -50,5 +56,18 @@ export default {
                 commit("newUser", user_add_response.data)
             })
         },
+        updateUser({commit,state},payload){
+            console.log('payload', payload)
+            axios.patch(`${state.baseUrl}/${payload.id}`, payload).then(update_reponse=> {
+                console.log('update_reponse', update_reponse)
+                if(update_reponse.status === 200){
+                    commit("updateUserInfo", payload)
+                }
+                else{
+                    alert("Unsuccesfull")
+                }
+            
+            })
+        }
     }
 }
