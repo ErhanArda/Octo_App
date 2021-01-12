@@ -1,5 +1,5 @@
 # octo_app
-
+I used A hosted REST-API https://reqres.in/ for basic CRUD operations with Vuex
 ## Project setup
 ```
 npm install
