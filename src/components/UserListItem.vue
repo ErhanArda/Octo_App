@@ -25,6 +25,11 @@
             <td>{{ user.email }}</td>
             <td>
             </td>
+            <td>
+            <v-btn @click="deleteUser(user.id)" color="error"> <v-icon small>
+                mdi-delete
+                </v-icon></v-btn>
+            </td>
             </tr>
         </tbody>
         </template>
@@ -35,7 +40,12 @@
 
 export default {
     props: ["userList"],
-
+    methods:{
+        deleteUser(userId){
+            alert(userId)
+            this.$store.dispatch("deleteUser",userId)
+        },
+    }
 };
 </script>
 
