@@ -12,7 +12,9 @@
           v-bind="attrs"
           v-on="on"
         >
-          Update
+          <v-icon small>
+              mdi-account-edit
+            </v-icon>
         </v-btn>
       </template>
       <v-card>
